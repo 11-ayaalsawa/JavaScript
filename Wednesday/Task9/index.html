@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <select name="font_family" id="font_family" onchange="fontfamily()">
+            <option value="Arial" selected>Arial</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Helvetica">Helvetica</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+        </select>
+        <select name="font_size" id="font_size" onchange="fontsize()">
+            <option value="10pt">10pt</option>
+            <option value="12pt" selected>12pt</option>
+            <option value="14pt">14pt</option>
+            <option value="16pt">16pt</option>
+        </select>
+
+        <label>Italic <input type="checkbox" name="italic" id="italic" onchange="iitalic()"></label>
+        <label>Bold <input type="checkbox" name="bold" id="bold"  onchange="ibold()"></label>
+        <label>Underline <input type="checkbox" name="underline" id="underline" onchange="iunderline()"></labe><br>
+            <div id="mydiv" style="height: 150px;width: 400px; border: 1px solid; margin-top: 20px; padding-left: 5px;"> The quick brown fox jumps over the lazy 
+            </div>
+
+</body>
+<script src="./app.js"></script>
+</html>
