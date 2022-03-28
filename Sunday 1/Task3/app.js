@@ -26,4 +26,3 @@ else if (o=="/") {
     o =(N1/N2)
 }
 {document.getElementById("num").innerHTML = o ;}
-

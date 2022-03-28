@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url("https://cdn.mos.cms.futurecdn.net/XGBorFEVLWV9H3aKV8Q2iC.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        form{
+            width: 400px;
+           border: 3px solid darkblue;
+           padding: 20px;
+           background-color: white;
+           font-size: larger;
+           color: darkblue;
+
+           
+          
+        }
+
+        span {
+            color: darkblue;
+            font-size:x-large;
+            font-weight: bolder;
+        }
+
+
+        table{
+        width: 35%;
+        
+        position: absolute;
+        left: 60%;
+        top: 20px;
+        }
+        td{
+        border: 3px solid darkblue;
+        background-color: white;
+        font-size:x-large;
+        
+         }
+
+         .divForm{
+         width: 35%;
+         }
+
+         button {
+           margin-left: 300px;
+         }
+
+
+
+
+
+       
+        
+    </style>
+</head>
+
+    <body>
+        <section class="contaner">
+    
+            <div class="divForm">
+                <form action="" id="mobForm">
+                  
+                        <span>Mobile Form</span><br>
+                        <br>
+                        <label for="" id="userName">Name:</label>
+                        <input type="text" name="useName">
+                        <br><br>
+                        <label for="" id="devisType">Type:</label>
+                        
+                        <select name="typeNameD" id="typeName">
+                            <option value="samsung">samsung</option>
+                            <option value="apple">apple</option>
+                            <option value="Huawi">Huawi</option>
+                        </select>
+                        <br><br>
+                        <button type="submit">add device</button>
+                   
+                </form>
+            </div>
+            <div class="divTable">
+                <table id="tableCon">
+                    <thead id="headTa"><tr>
+                        <td>Name</td>
+                        <td>Type</td>
+                        <td>Price</td>
+                        <td>condition</td></tr>
+            </thead>
+                    <tbody id="bodyTa"></tbody>
+                    <tfoot id="footTa"></tfoot>
+                </table>
+    
+            </div>
+        </section>
+    
+        <script src="./app.js"></script>
+    </body>
+    
+    </html>

@@ -24,53 +24,84 @@
 // Ex: subtract(5); => 5 - 4 - 3 - 2 - 1 - 0 => -5
 // Ex: subtract(9); => 9 - 8 - 7 - 6 - 5 - 4 - 3 - 2 - 1 - 0 => -27
 
-
-    function subtract(n){
-        let num=n;
-        let i=n-1;
-        while(i>0){
-                num=num-i;
-                i--;
-            }
+function subtract(n){
+    let sub=n;
+    while(n>0){
+        n-=1
+        sub-=n
         
-        return num;
     }
+    return sub
+}
+
+
+document.getElementById("while1").innerHTML=subtract(2)+" , "+  subtract(5)+" , " +  subtract(9);
+
+
+//Task2
+// Create a function called factorial
+// that takes a single parameter n,
+// and return the product of all integers up to n starting from 1
+// Ex: factorial(2); => 2 * 1 => 2
+// Ex: factorial(4); => 4 * 3 * 2 * 1 => 24
+
+function factorial(n){
+    let fact=1;
+    while(n>=1){
+       fact=fact*n;
+        n--;
+    }
+    return fact;
+}
+
+
+document.getElementById("while2").innerHTML=factorial(2)+" , "+factorial(4) ;
 
 
 
-document.getElementById("while1").innerHTML=subtract(2);
 
-/*
-2
-Create a function called factorial
-that takes a single parameter n,
-and return the product of all integers up to n starting from 1
-Ex: factorial(2); => 2 * 1 => 2
-Ex: factorial(4); => 4 * 3 * 2 * 1 => 24
-*/
-
-
-/*
-3
-Create a function called repeatStr
-that takes 2 parameters string and number,
-and return the string number time with space
-Important: the continue condition should be [somthing !== 0]
-** Think how we can return nothing ???
-** Important: You should dint have extra space at the end
-Ex: repeatStr("to",2); => "to to"
-Ex: repeatStr("to",4); => "to to to to"
-*/
+// Task3
+// Create a function called repeatStr
+// that takes 2 parameters string and number,
+// and return the string number time with space
+// Important: the continue condition should be [somthing !== 0]
+// ** Think how we can return nothing ???
+// ** Important: You should dint have extra space at the end
+// Ex: repeatStr("to",2); => "to to"
+// Ex: repeatStr("to",4); => "to to to to"
 
 
-/*
-4
-Create a function called sum2
-that take two parameter
-and will return the sumation from the first number to the second number
-Ex: sum2(4, 5); => 4 + 5 => 9
-Ex: sum2(3, 6); => 3 + 4 + 5 + 6 => 18
-*/
+function repeatStr(S, N) {
+    let result = "";
+    while (N !== 0) {
+      result = result + S+ " ";
+  
+      N -= 1;
+    }
+    return result.slice(0, result.length - 1);
+  }
+
+document.getElementById("while3").innerHTML= repeatStr("to",2)+" , "+repeatStr("to",4);
+
+
+// Task4
+// Create a function called sum2
+// that take two parameter
+// and will return the sumation from the first number to the second number
+// Ex: sum2(4, 5); => 4 + 5 => 9
+// Ex: sum2(3, 6); => 3 + 4 + 5 + 6 => 18
+
+function sum2(num1, num2) {
+    let sumation = 0;
+    while (num1 <= num2) {
+        sumation = sumation + num1;
+      num1 += 1;
+    }
+    return sumation;
+  }
+  sum2(4, 5);
+
+  document.getElementById("while4").innerHTML= sum2(4, 5) +" , "+ sum2(3, 6);
 
 
 /*

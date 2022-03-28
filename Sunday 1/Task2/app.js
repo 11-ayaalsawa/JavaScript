@@ -46,4 +46,3 @@ switch (x) {
 }
 
 {document.getElementById("day").innerHTML = x ;}
-
