@@ -11,17 +11,19 @@ console.log ('Here is : ', 'array')
 
 let words= ['the', 'fox', 'over', 'lazy', 'dog'  ]
 
+document.getElementById("array1").innerHTML= numbers.join(" , ")+ " / " +  names .join(" , ")+ " / " +  words.join(" , ");
 
 
 
 
 // 2
 // What is the index of "Banana”, Tomato"
-var fruits=["Tomato","Banana","Watermelon"]
+let fruits=["Tomato","Banana","Watermelon"]
 
-console.log(1,0);
+// console.log("Banana=1"+"/"+ "Tomato=0");
 
 
+document.getElementById("array2").innerHTML=("Banana=1"+"/"+ "Tomato=0");
 
 
 
@@ -35,6 +37,7 @@ let sports =["swimming", "running" , "boxing"]
 // 3- Favorite Movie (4)
 let movies =[" The Note Book ", "About Time", "Crazy about her", "Atonement"]
 
+document.getElementById("array3").innerHTML= foods.join(" , ")+ " / " + sports.join(" , ")+ " / " +  movies.join(" , ");
 
 
 
@@ -60,7 +63,7 @@ console.log(array[0]);}
 firstOfArray2()
 
  
-
+document.getElementById("array4").innerHTML=firstOfArray() + " / " + firstOfArray2() ;
 
 
 
@@ -78,8 +81,8 @@ firstOfArray2()
 
 function lastOfArray(arr) {
     arr= [1 , 4, 5]
-   console.log(arr[2]);
-   return arr=arr[2]
+   console.log(arr[arr.length - 1]);
+   return arr=arr[arr.length - 1]
   
 }
 
@@ -88,13 +91,13 @@ lastOfArray()
 function lastOfArray2(array) {
 array =["t","u","g","x"]
 
-console.log(array[3]);
-return array= array[3]
+console.log(array[[array.length - 1]]);
+return array= array[[array.length - 1]]
 }
 
 lastOfArray2()
 
-
+document.getElementById("array5").innerHTML=lastOfArray() + " / " +lastOfArray2();
 
 
 
@@ -102,7 +105,7 @@ lastOfArray2()
 // 6
 // Using console make this array to be like this one (push, unshift, shift, pop)
 
-var array = [0,5,7,9]
+let array = [0,5,7,9]
 array.shift()
 array.shift()
 array.shift()
@@ -111,20 +114,20 @@ array.push(10)
 console.log(array);
 // => [1,3,4,6,8,9,10]
 
-
+document.getElementById("array6").innerHTML=array.join(" / ");
 
 
 // 7
 // Using the console try to figure out what the thing that’s (push, unshift, shift, pop) return to you
 
-var array2 = [5,9,-7,3.5]
+let array2 = [5,9,-7,3.5]
 array2.push(8,6)
 array2.unshift(1,10)
 array2.shift()
 array2.pop()
 console.log(array2);
 
-
+document.getElementById("array7").innerHTML=array2.join(" / ");
 
 
 // 8
@@ -132,25 +135,22 @@ console.log(array2);
 // that take an array as a parameter
 // and return the middle element in an array if it is have an odd elemnets
 // and return the two middle elemnt in an array if it is have an even elemnets
-z=[1,4,5]
-y=[4,6,9,7]
-function middleOfArray (x) {
+// z=[1,4,5]
+// y=[4,6,9,7]
 
-    let xlength = (x.length);
-    let odd= (xlength-1/2);
-    let even1=(xlength-2/2);
-    let even2=(xlength/2);
-    
-    if (xlength%2==0){
-        return x= x [even1], x [even2]
-    }
-    else
-    {
-        return x= x [odd]
-    }
 
-    
- }
+function middleOfArray(x) {
+    let length = x.length;
+    if (length % 2 !== 0) {
+      return x[(length - 1) / 2]
+    }
+    return (x[length / 2 - 1] + " and " + x[length / 2])
+  }
+  
+
+ document.getElementById("array8").innerHTML=middleOfArray([1,4,5])  + " / " + middleOfArray([4,6,9,7]) ;
+
+
 // Ex: middleOfArray([1,4,5]) => 4
 // Ex: middleOfArray(["t","u","g","x"]) =>"u and g"
 
@@ -171,9 +171,20 @@ function middleOfArray (x) {
 
 
 
+let animals = ['cat', 'ele', 'bird']
+animals[0] = 'zebra';
+animals[1] = 'elephant';
+animals.length = 2;
 
+let nums = [1, 2, 3, 8, 9];
+nums[0] = 5;
+nums[1] = -22;
+nums[2] = 3.5;
+nums[3] = 44;
+nums[4] = 98;
+nums[5] = 44;
 
-
+document.getElementById("array9").innerHTML= animals + " / " +  nums;
 
 
 // 10
@@ -194,7 +205,11 @@ function middleOfArray (x) {
 // **try more cases by your self
 // */
 
+function indexOfArray(array, element) {
+    return array[element];
+  }
 
+  document.getElementById("array10").innerHTML= indexOfArray(nums,3) + " / " + indexOfArray(nums,1)  + " / " +  indexOfArray(nums,4) ;
 
 // 11
 // Create a function called arrayExceptLast
@@ -206,10 +221,12 @@ let N= [1,2,3,8,9];
 function arrayExceptLast9(N) {
     N.pop()
     console.log(N);
+    return N
 }
-arrayExceptLast9(N)
 
 
+
+document.getElementById("array11").innerHTML= arrayExceptLast9([1,2,3,8,9]).join(" , ") ;
 // Ex: arrayExceptLast(nums) =>  [1,2,3,8]
 
 // **try more cases by your self
@@ -226,11 +243,12 @@ let O= [1,2,3,8,9];
 function addToEnd(O) {
 O.pop()
 O.push(55)
-console.log(O);}
+console.log(O);
+return O}
 
-addToEnd(O)
 
 
+document.getElementById("array12").innerHTML= addToEnd(O).join(" , ") ;
 
 
 
@@ -253,8 +271,9 @@ function sumArray(NN){
     return (NN=0+1+2+3+4+5)
 }
 
-console.log(sumArray(NN));
 
+
+document.getElementById("array13").innerHTML= sumArray(NN);
 // Ex: sumArray(nums) => 23
 
 // ** solve it one time using for loop and another using while loop
@@ -268,14 +287,29 @@ console.log(sumArray(NN));
 // Create a function called minInArray
 // that accept an array
 // and return the minimum value inside this array
-var min= [1,2,3,8,9]
-function minInArray (min) {
-    console.log(min);
-    return 
-   
-}
+function minInArray(array) {
+    let min = array[0];
+    for (let i = 1; i < array.length; i++) {
+      if (array[i] < min) {
+        min = array[i];
+      }
+    }
+    return min;
+  }
+  
+  function minInArray2(array) {
+    let min = array[0];
+    let i = 1;
+    while (i < array.length) {
+      if (array[i] < min) {
+        min = array[i];
+      }
+      i++;
+    }
+    return min;
+  }
 
-minInArray (min) 
+document.getElementById("array14").innerHTML= minInArray(array) +" , "+ minInArray2(array);
 
 
 //
@@ -298,6 +332,9 @@ console.log(remove);
 }
 
 removeFromArray(remove)
+
+document.getElementById("array15").innerHTML=removeFromArray(remove) ;
+
 
 // var nums= [1,2,3,8,9]
 // Ex: minInArray(nums,8) => [1,2,3,9]
