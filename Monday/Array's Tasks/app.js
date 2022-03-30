@@ -297,19 +297,9 @@ function minInArray(array) {
     return min;
   }
   
-  function minInArray2(array) {
-    let min = array[0];
-    let i = 1;
-    while (i < array.length) {
-      if (array[i] < min) {
-        min = array[i];
-      }
-      i++;
-    }
-    return min;
-  }
+ 
 
-document.getElementById("array14").innerHTML= minInArray(array) +" , "+ minInArray2(array);
+document.getElementById("array14").innerHTML= minInArray(array);
 
 
 //
@@ -349,15 +339,19 @@ document.getElementById("array15").innerHTML=removeFromArray(remove) ;
 // that accept an array
 // and return an array have only the odd elemnts
 
-let D= [1,2,3,8,9]
-function oddArray(D) {
-if (D%2!==0) {
-    console.log(D);
-    return D
-}
-}
 
-oddArray(D)
+function oddArray(array) {
+    var result = [];
+    for (var i = 0; i < array.length; i++) {
+      if (array[i] % 2 === 1) {
+        result.push(array[i]);
+      }
+    }
+    return result;
+  }
+
+  
+document.getElementById("array16").innerHTML= oddArray(nums);
 
 
 // Ex: oddArray(nums) => [1,3,9]
@@ -382,8 +376,20 @@ Ex: aveArray(nums) => 16.6
 ** solve it one time using for loop and another using while loop
 **try more cases by your self
 */
+nums2= [1,2,3,8,9,77];
+nums= [1,2,3,8,9];
+function aveArray(array) {
+    var sum = 0;
+    for (var i = 0; i < array.length; i++) {
+      sum = sum + array[i];
+    }
+    return sum / array.length;
+  }
+  
 
-
+ 
+  document.getElementById("array17").innerHTML=  aveArray(nums)+" , "+ aveArray(nums2);
+  
 /*
 18
 Create a function called shorterInArray
@@ -396,8 +402,19 @@ Ex: shorterInArray(strings) => "alex"
 ** solve it one time using for loop and another using while loop
 **try more cases by your self
 */
+let strings= ["alex","mercer","madrasa","rashed2","emad","hala"];
+function shorterInArray(array) {
+  let shortest = array[0];
+  for (var i = 0; i < array.length; i++) {
+    if (array[i].length < shortest.length) {
+      shortest = array[i];
+    }
+  }
+  return shortest;
+}
 
-
+ 
+document.getElementById("array18").innerHTML=  shorterInArray(strings);
 /*
 19
 Create a function called repeatChar
@@ -413,6 +430,18 @@ Ex: repeatChar(string,"z") => 0
 */
 
 
+function repeatChar(A, B) {
+  let char = 0;
+  for (var i = 0; i < A.length; i++) {
+    if (A[i].toLowerCase() === B.toLowerCase()) {
+      char++;
+    }
+  }
+  return char;
+}
+
+ 
+document.getElementById("array19").innerHTML=repeatChar(strings,"z");
 /*
 20
 Create a function called evenIndexOddLength
@@ -427,10 +456,20 @@ Ex: evenIndexOddLength(strings) => ["madrasa"]
 */
 
 
+
+function evenIndexOddLength(IN) {
+  let alex = [];
+  for (let i = 0; i < IN.length; i = i + 2) {
+    if (IN[i].length % 2 === 1) {
+      alex.push(IN[i])
+    }
+  }
+  return alex;
+}
+
+document.getElementById("array20").innerHTML=evenIndexOddLength(strings);
+
 /*
-
-
-
 
 
 21
@@ -444,7 +483,16 @@ Ex: powerElementIndex(nums) => [0, 5, 16, 27, 16, 100000]
 ** solve it one time using for loop and another using while loop
 **try more cases by your self
 */
+nums= [44, 5, 4, 3, 2, 10];
+function powerElementIndex(rrr) {
+  let power = [];
+  for (var i = 0; i < rrr.length; i++) {
+    power[i] = rrr[i] ** i;
+  }
+  return power;
+} 
 
+document.getElementById("array21").innerHTML=powerElementIndex(nums);
 
 /*
 22
@@ -458,4 +506,15 @@ Ex: evenNumberEvenIndex(nums) => [2,8,34]
 ** solve it one time using for loop and another using while loop
 **try more cases by your self
 */
+nums= [5,2,2,1,8,66,55,77,34,9,55,1]
+function evenNumberEvenIndex(array) {
+  var result = [];
+  for (var i = 0; i < array.length; i = i + 2) {
+    if (array[i] % 2 === 0) {
+      result.push(array[i]);
+    }
+  }
+  return result;
+}
 
+document.getElementById("array22").innerHTML=evenNumberEvenIndex(nums);
