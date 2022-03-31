@@ -9,6 +9,8 @@ let Emailconf=document.getElementById("emailCon")
 let passwo=document.getElementById("pass")
 let passwoconf=document.getElementById("passCon")
 
+let arr=[];
+
 
 function getinfo(firstName, lastName,datebb,emailll,emailconf,passwordd,passwordcon) {
     this.fName=firstName;
@@ -22,6 +24,8 @@ function getinfo(firstName, lastName,datebb,emailll,emailconf,passwordd,password
     console.log( this.fullname);
     this.correctdate=checkdate(this.date);
     console.log(this.correctdate);
+    arr.push(this);
+   
    
 }
 
@@ -76,7 +80,11 @@ function handlesubmit (e){
     let emailconf=e.target.emailconf.value;
 
     new getinfo(firstName,lastName,passwordd,passwordcon,datebb, emailll,emailconf);
+    console.log("hi");
 }
 handlesubmit ();
 
 
+function render(){
+    regform.map(function (v,index))
+}

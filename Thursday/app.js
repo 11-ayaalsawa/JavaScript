@@ -185,25 +185,41 @@ document.getElementById("task5").innerHTML=longestName(persons);
   // }
 
 
-let str = "My name is alex mercer class name B baba mama hello Hello HELLO",
-    split = str.split(" "),
-    obj = {};
+// let str = "My name is alex mercer class name B baba mama hello Hello HELLO";
+//     split = str.split(" "),
+//     obj = {};
 
-for (let i = 0; i < split.length; i++) {
-  if (obj[split[i]] === undefined) {
-    obj[split[i]] = 1;
-  } else {
-    obj[split[i]]++;
+// for (let i = 0; i < split.length; i++) {
+//   if (obj[split[i]] === undefined) {
+//     obj[split[i]] = 1;
+//   } else {
+//     obj[split[i]]++;
+//   }
+// }
+// console.log(obj);
+
+
+
+
+//  let str = "My name is alex mercer class name B baba mama hello Hello HELLO";
+
+function repeatWord(str) {
+  let arr = str.split(' ');
+  let obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (obj[arr[i].toLowerCase()]) {
+      obj[arr[i].toLowerCase()] += 1
+    } else {
+      obj[arr[i].toLowerCase()] = 1
+    }
   }
+  console.log(obj);
+  return obj;
 }
-console.log(obj);
 
 
-
-
-
-
-
+repeatWord("My name is alex mercer class name B baba mama hello Hello HELLO");
+document.getElementById("Task7").innerHTML=`The result is in the console`
 
 
 
@@ -226,17 +242,16 @@ console.log(obj);
 
 function repeatChar(char){
   let objectletter=char.split("");
-  let letters=[];
-  let count=1;
+  let letters={};
+  
 
   for (let i=0; i<objectletter.length; i++){
-    if (objectletter[i] === objectletter[i+1]){
-      count++;
+    if (letters[objectletter[i].toLowerCase()]){
+      letters[objectletter[i].toLowerCase()]+= 1
 
     }
     else{
-      let value=`${count}${objectletter[i]}`;
-      letters=[...letters,value];
+      letters[objectletter[i].toLowerCase()]= 1
     }
 
   }
@@ -246,8 +261,9 @@ return letters;
 }
 
 
+repeatChar("mamababatetacedo");
 
-document.getElementById("Task8").innerHTML=repeatChar("mamababatetacedo");
+document.getElementById("Task8").innerHTML=`The result is in the console`;
 
   
  
@@ -258,18 +274,20 @@ document.getElementById("Task8").innerHTML=repeatChar("mamababatetacedo");
   
   // Ex: selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd'])
   // =>  {a: 1, cat: 3}
-  let u=({a: 1, cat: 3}, ['a', 'cat', 'd']);
- function selectFromObject(f){
-   console.log((Object.values(u)));
-   return (Object.values(u));
- }
-
-
- document.getElementById("Task9").innerHTML= selectFromObject();
 
   
   
-  
+ function selectFromObject(obj, arr) {
+  var result = {}
+  for (var i = 0; i < arr.length; i++) {
+    if (obj[arr[i].toLowerCase()]) {
+      result[arr[i].toLowerCase()] = obj[arr[i].toLowerCase()]
+    }
+  }
+  console.log(result);
+  return result;
+}
+ document.getElementById("Task9").innerHTML= selectFromObject({a: 1, cat: 3}, ['a', 'cat', 'd']);
   // Task10
   // Create a function called objectToArray
   // that accept an object
@@ -285,66 +303,126 @@ document.getElementById("Task8").innerHTML=repeatChar("mamababatetacedo");
   }
 
   
-  objectToArray()
+
  
 
-  // document.getElementById("Task10").innerHTML= ;  
+  document.getElementById("Task10").innerHTML=  objectToArray();  
   
   
-  /*
-  11
-  Create a function called arrayToObject
-  that accept an array
-  and return an object of the keys and values in this object
+
+  // Task11
+  // Create a function called arrayToObject
+  // that accept an array
+  // and return an object of the keys and values in this object
   
-  Ex: arrayToObject(["firstName","Moh","age",24])
-  => {firstName:"Moh",age:24}
-  */
+  // Ex: arrayToObject(["firstName","Moh","age",24])
+  // => {firstName:"Moh",age:24}
+
   
+  function arrayToObject(arr) {
+    var obj = {};
+    for (var i = 0; i < arr.length; i += 2) {
+      obj[arr[i]] = arr[i + 1];
+    }
+    console.log(obj);
+    return obj;
   
-  /*
-  12
-  Create a function called onlyNumber
-  that accept an object
-  and return a new object that have only the values that is a number
-  **hint: search in MDN how to know the type of variable
-  
-  Ex: onlyNumber({firstName:"Moh",age:24,movies:[1,5,"string"]})
-  => {age:24}
-  */
-  
-  
-  /*
-  13
-  Create a function called onlyString
-  that accept an object
-  and return a new object that have only the values that is a string
-  **hint: search in MDN how to know the type of variable
-  
-  Ex: onlyString({firstName:"Moh",age:24,movies:[1,5,"string"]})
-  => {firstName:"Moh"}
-  */
+  }
+
+  arrayToObject(["firstName","Moh","age",24])
+  document.getElementById("Task11").innerHTML=`The result is in the console` ; 
   
   
-  /*
-  14
-  Create a function called onlyArray
-  that accept an object
-  and return a new object that have only the values that is a array
-  **hint: search in MDN how to know the type of variable
+  // TAsk12
+  // Create a function called onlyNumber
+  // that accept an object
+  // and return a new object that have only the values that is a number
+  // **hint: search in MDN how to know the type of variable
   
-  Ex: onlyArray({firstName:"Moh",age:24,movies:[1,5,"string"]})
-  => {movies:[1,5,"string"]}
-  */
+  // Ex: onlyNumber({firstName:"Moh",age:24,movies:[1,5,"string"]})
+  // => {age:24}
+ 
+  function onlyNumber(obj) {
+    var result = {}
+    for (var key in obj) {
+      if (typeof obj[key] === "number") {
+        result[key] = obj[key];
+      }
+    }
+    console.log(result);
+    return result;
+  }
+  
+  onlyNumber({firstName:"Moh",age:24,movies:[1,5,"string"]});
+  document.getElementById("Task12").innerHTML=`The result is in the console` ; 
+
+
+  
+  // Task13
+  // Create a function called onlyString
+  // that accept an object
+  // and return a new object that have only the values that is a string
+  // **hint: search in MDN how to know the type of variable
+  
+  // Ex: onlyString({firstName:"Moh",age:24,movies:[1,5,"string"]})
+  // => {firstName:"Moh"}
+
+  
+  function onlyString(obj) {
+    var result = {}
+    for (var key in obj) {
+      if (typeof obj[key] === "string") {
+        result[key] = obj[key];
+      }
+    }
+    console.log(result);
+    return result;
+  }
+
+  onlyString({firstName:"Moh",age:24,movies:[1,5,"string"]})
+  document.getElementById("Task13").innerHTML=`The result is in the console` ; 
+
   
   
-  /*
-  15
-  Create a function called keysArray
-  that accept an object
-  and return an array have the key inside this object
+
+  // Task14
+  // Create a function called onlyArray
+  // that accept an object
+  // and return a new object that have only the values that is a array
+  // **hint: search in MDN how to know the type of variable
   
-  Ex: keysArray({firstName:"Moh",age:24,movies:[1,5,"string"]})
-  => ['firstName', 'age', 'movies']
+  // Ex: onlyArray({firstName:"Moh",age:24,movies:[1,5,"string"]})
+  // => {movies:[1,5,"string"]}
+ 
+  function onlyArray(obj) {
+    var result = {}
+    for (var key in obj) {
+      if (Array.isArray(obj[key])) {
+        result[key] = obj[key];
+      }
+    }
+    console.log(result);
+    return result;
+  }
+  onlyArray({firstName:"Moh",age:24,movies:[1,5,"string"]})
+
+  document.getElementById("Task14").innerHTML=`The result is in the console` ; 
+
+  // Task15
+  // Create a function called keysArray
+  // that accept an object
+  // and return an array have the key inside this object
   
-  */
+  // Ex: keysArray({firstName:"Moh",age:24,movies:[1,5,"string"]})
+  // => ['firstName', 'age', 'movies']
+  
+  function keysArray(obj) {
+    var result = [];
+    for (var key in obj) {
+      result.push(key);
+    }
+    console.log( result);
+    return result;
+  }
+  keysArray({firstName:"Moh",age:24,movies:[1,5,"string"]})
+  document.getElementById("Task15").innerHTML=`The result is in the console` ; 
